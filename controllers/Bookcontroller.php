@@ -78,13 +78,10 @@ class Bookcontroller{
             $response = array('status' => 'error', 'message' => 'Failed to save data.');
             $isExist = $this->checkIfExist($req);
             if(!empty($req['book_id']) && isset($req['book_id'])){
-
-                if($isExist > 0){
-                    $update = $this->update($req);
-                    if($update){
-                        $response['status'] = 'success';
-                        $response['message'] = 'Successfully updated.';
-                    }
+                $update = $this->update($req);
+                if($update){
+                    $response['status'] = 'success';
+                    $response['message'] = 'Successfully updated.';
                 }
             }else{
                 if($isExist > 0){
